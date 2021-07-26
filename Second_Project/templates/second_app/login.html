@@ -1,0 +1,16 @@
+{% extends 'second_app/base.html' %}
+
+{% block body_block %}
+<h3 class="alert alert-warning">Login page: </h3>
+<form action="{% url 'second_app:user_login' %}" method="POST">
+  <label for="username">Username</label>
+  <input class="form-control" type="text" name="username" placeholder="Enter your username..">
+  <label for="password">Password</label>
+  <input class="form-control" type="password" name="password" placeholder="Enter your password..">
+  <br>
+
+
+  <input type="submit" name="submit" value="Submit" class="btn btn-dark">
+  {% csrf_token %}
+</form>
+{% endblock %}

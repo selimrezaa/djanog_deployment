@@ -1,0 +1,20 @@
+{% extends 'second_app/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+<h3>Hello i'm REGISTER page!</h3>
+
+
+{% if registered %}
+<div class="alert alert-success">
+  Conratulations! You'r Registered.
+</div>
+{% else %}
+<form enctype="multipart/form-data" method="POST">
+  {{ user_form.as_p }}
+  {{ user_info_form.as_p }}
+  {% csrf_token %}
+  <input type="submit" name="submit" class="btn btn-success">
+</form>
+{% endif %}
+{% endblock %}
